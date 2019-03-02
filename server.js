@@ -15,6 +15,10 @@ app.set('port', process.argv[2]);
 /* new to session */
 app.use(session({secret: 'password'}));
 
+var owmkey = '&APPID=2c55c2994b61106d32099e63225a925b';
+var owm = 'http://api.openweathermap.org/data/2.5/weather?q=Corvallis,us';
+
+
 
 app.get('/', function(req, res, next) {
   var content = {};
@@ -23,11 +27,25 @@ app.get('/', function(req, res, next) {
     res.render('newForm', content);
     return;
   }
-  context.name = req.session.name;
-  context.toDoCount = req.session.toDo.length || 0;
-  context.toDo = req.session.toDo || [];
-  console.log(content.toDO);
-  res.render('currentToDo', content);
+  /* add request here */
+  request(owm + owmkey, function(error, response, body) {
+    if(!error && response.statusCode < 400) {
+      content.owm = body;
+      console.log(JSON.parse(body));
+      
+
+      content.name = req.session.name;
+      content.toDoCount = req.session.toDo.length || 0;
+      content.toDo = req.session.toDo || [];
+      console.log(content.toDO);
+      res.render('currentToDo', content);
+
+    } else {
+        if(response) {
+        console.log(response.statusCode);
+        }
+    }
+  });
 });
 
 app.post('/', function(req, res) {

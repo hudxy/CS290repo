@@ -1,7 +1,15 @@
 <h1>Hello {{name}} Here is your To Do List!</h1>
 <h2>You have {{toDoCount}} items on your to do list.</h2>
 <form method="post">
+  <label>Enter name of activity: </label>
   <input type="text" name="name" id="toDoName">
+</br>
+  <label>Enter City Name: </label>
+  <input type="text" name="city" id="city">
+</br>
+  <label>Enter Minimum Temp to accomplish activity: </label>
+  <input type="number" name="minTemp" id="minTemp">
+</br>
   <input type="submit" name="Add Item" value="Add Item">
 </form>
 {{#if toDo}}
@@ -9,8 +17,25 @@
   {{#each toDo}}
   <li>
     <h3>{{this.name}}</h3>
+    <br>
+    <p>{{this.temp}}</p>
     <form method="post">
       <input type="hidden" name="id" value="{{this.id}}">
+      <input type="submit" name="Done" value="Mark as Done">
+    </form>
+  </li>
+  {{/each}}
+</ul>
+{{/if}}
+{{#if owm}}
+<ul>
+  {{#each owm}}
+  <li>
+    
+    <br>
+    <p>{{this.temp}}</p>
+    <form method="post">
+      <input type="hidden" name="id" >
       <input type="submit" name="Done" value="Mark as Done">
     </form>
   </li>
