@@ -16,26 +16,12 @@
 <ul>
   {{#each toDo}}
   <li>
+
     <h3>{{this.name}}</h3>
-    <br>
-    <p>{{this.temp}}</p>
+    <p>City task is in: {{this.city}}</p>
+    <p>Temp of {{this.city}}: {{this.temp}}</p>
     <form method="post">
       <input type="hidden" name="id" value="{{this.id}}">
-      <input type="submit" name="Done" value="Mark as Done">
-    </form>
-  </li>
-  {{/each}}
-</ul>
-{{/if}}
-{{#if owm}}
-<ul>
-  {{#each owm}}
-  <li>
-    
-    <br>
-    <p>{{this.temp}}</p>
-    <form method="post">
-      <input type="hidden" name="id" >
       <input type="submit" name="Done" value="Mark as Done">
     </form>
   </li>

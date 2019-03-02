@@ -16,7 +16,7 @@ app.set('port', process.argv[2]);
 app.use(session({secret: 'password'}));
 
 var owmkey = '&APPID=2c55c2994b61106d32099e63225a925b';
-var owm = 'http://api.openweathermap.org/data/2.5/weather?q=Corvallis,us';
+var owm = 'http://api.openweathermap.org/data/2.5/weather?q=';
 
 
 
@@ -28,12 +28,12 @@ app.get('/', function(req, res, next) {
     return;
   }
   /* add request here */
-  request(owm + owmkey, function(error, response, body) {
+  /*
+  request.get(owm + owmkey, function(error, response, body) {
     if(!error && response.statusCode < 400) {
-      content.owm = body;
       console.log(JSON.parse(body));
-      
-
+      var parseBody = JSON.parse(body);
+      content.owm = parseBody
       content.name = req.session.name;
       content.toDoCount = req.session.toDo.length || 0;
       content.toDo = req.session.toDo || [];
@@ -45,7 +45,13 @@ app.get('/', function(req, res, next) {
         console.log(response.statusCode);
         }
     }
-  });
+    */
+    content.name = req.session.name;
+    content.toDoCount = req.session.toDo.length || 0;
+    content.toDo = req.session.toDo || [];
+    content.city = req.session.city || [];
+    console.log(content.toDO);
+    res.render('currentToDo', content);
 });
 
 app.post('/', function(req, res) {
@@ -55,6 +61,14 @@ app.post('/', function(req, res) {
     req.session.name = req.body.name;
     req.session.toDo = [];
     req.session.curId = 0;
+    req.session.city = [];
+
+    content.name = req.session.name;
+    content.toDoCount = req.session.toDo.length;
+    content.toDo = req.session.toDo;
+    console.log(content.toDo);
+    res.render('currentToDo', content);
+    return;
   }
   //If theres no session, go to newForm
   if(!req.session.name) {
@@ -63,8 +77,28 @@ app.post('/', function(req, res) {
   }
   //add an toDo item
   if(req.body['Add Item']) {
-    req.session.toDo.push({"name":req.body.name, "id":req.session.curId});
-    req.session.curId++;
+    request.get(owm + req.body.city + owmkey, function(error, response, body) {
+      if(!error && response.statusCode < 400) {
+        console.log(JSON.parse(body));
+        parseBody = JSON.parse(body);
+        req.session.toDo.push({"name":req.body.name, "id":req.session.curId, "city": parseBody.name, "temp": parseBody.main.temp});
+        req.session.curId++;
+
+        content.name = req.session.name;
+        content.toDoCount = req.session.toDo.length;
+        content.toDo = req.session.toDo;
+        content.city = req.session.city;
+        console.log(content.toDo);
+        res.render('currentToDo', content);
+        return;
+
+      } else {
+          if(response) {
+          console.log(response.statusCode);
+          }
+          console.log(error);
+      }
+    });
   }
   //if clicked done with task
   if(req.body['Done']) {
@@ -72,12 +106,6 @@ app.post('/', function(req, res) {
       return e.id != req.body.id;
     });
   }
-
-  content.name = req.session.name;
-  content.toDoCount = req.session.toDo.length;
-  content.toDo = req.session.toDo;
-  console.log(content.toDo);
-  res.render('currentToDo', content);
 });
 
 app.use(function(req,res){
