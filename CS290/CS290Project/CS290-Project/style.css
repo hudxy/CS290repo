@@ -1,0 +1,119 @@
+/* Home page styles */
+#myCarousel {
+  width: 600px;
+  height: 650px;
+  margin: auto;
+}
+.carousel-inner {
+  height: 100%;
+}
+
+.item {
+  background-size: cover;
+  background-position: 50% 50%;
+  width: 100%;
+  height: 100%;
+}
+
+.item img {
+  visibility: visible;
+}
+
+#textScroll {
+ background-color: lightblue;
+ width: 900px;
+ height: 200px;
+ overflow: auto;
+ margin: auto;
+}
+
+/* Navagation bar styles */
+#navbar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.navbarItem {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px 60px;
+  text-decoration: none;
+ }
+
+ ul {
+   list-style-type: none;
+ }
+
+li a:hover {
+  background-color: lightblue;
+}
+.active {
+  background-color: #165485;
+}
+
+/* Contact Page styles */
+#emailDiv {
+  display: block;
+  text-align: center;
+}
+.gform {
+  display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+/* Resume Page Styles */
+#resButton {
+  background-color: #165485;
+  border: solid black;
+  color: white;
+  padding: 15px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+#resButton:hover {
+  background-color: lightblue;
+}
+
+#wrapper {
+  display: table;
+   margin: 0 auto;
+}
+
+/* Project Page Styles */
+.projScroll {
+  background-color: white;
+  width: 600px;
+  height: 100px;
+  overflow: auto;
+}
+#projectList {
+  display: table;
+   margin: 0 auto;
+}
+.project h1 {
+  text-align: center;
+}
+/* PDFObject styles source = https://pdfobject.com/ */
+.pdfobject-container {
+  height: 50rem;
+  width: 80rem;
+  border: 1rem solid rgba(0,0,0,.1);
+}

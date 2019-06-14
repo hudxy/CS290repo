@@ -1,0 +1,18 @@
+{
+  "name": "hwdb",
+  "version": "1.0.0",
+  "description": "Last CS290 assign",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js 8666",
+    "dev": "nodemon index.js 8666"
+  },
+  "author": "HD",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.2",
+    "body-parser": "^3.10.10",
+  }
+}

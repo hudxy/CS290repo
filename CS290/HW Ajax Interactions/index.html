@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>title</title>
+  </head>
+  <body>
+    <form>
+      <fieldset>
+        <legend>GET form for weather</legend>
+        <label for="City or Zipcode">City or Zipcode</label>
+        <input type="text" name="city" id="citys">
+        <br>
+        <br>
+        <input type="submit" id="citySubmit">
+      </fieldset>
+    </form>
+    <ul>
+      <li><span>Temperature in <span id='endCity'></span><span> is: </span></span><span id="temp"></span><span> F</span></li>
+      <li><span>Humidity is: </span><span id="humidity"></span></li>
+    </ul>
+    <form>
+      <fieldset>
+        <legend>POST form for weather submission</legend>
+        <span>Temperature and name of city will be sent via POST</span>
+        <br>
+        <span>GET form must be submitted first!</span>
+        <br>
+        <input type="text" name="postIn" id="postIn">
+        <br>
+        <input type="submit" id="postSubmit">
+      </fieldset>
+    </form>
+    <ul>
+      <li>
+        <span>City after POST: </span><span id='postCity'></span>
+        <br>
+        <span>Temperature after POST: </span><span id='postTemp'></span>
+        <br>
+        <span>POST Output: </span><span id='postOut'></span>
+      </li>
+    </ul>
+  </body>
+  <script src="script.js"></script>
+</html>

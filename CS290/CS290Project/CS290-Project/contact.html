@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <br>
+    <br>
+  <h1 style="text-align: center;">Welcome to Hudson Dean's Webpage</h1>
+    <meta charset="UTF-8">
+    <title>Hudson Dean Webpage</title>
+  </head>
+  <body>
+    <div id="navbar">
+      <ul>
+        <li class="navbarItem"><a href="index.html" >Home</a></li>
+        <li class="navbarItem"><a href="project.html" >Projects</a></li>
+        <li class="navbarItem"><a href="resume.html" >Resume</a></li>
+        <li class="navbarItem"><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </div>
+    <div id="emailDiv">
+      <!-- Using Contact Us form to send email without a Backend Server
+          From https://github.com/dwyl/learn-to-send-email-via-google-script-html-no-server#how
+        -->
+      <form class="gform" method="post" action="https://script.google.com/macros/s/AKfycbw-_xBFr08HvaTjwNWoMKP5v1tazJe6soAkzeRN/exec">
+        <fieldset>
+          <legend>Send Hudson an Email</legend>
+          <label for="fname">First Name: </label>
+          <br>
+          <input type="text" name="fname" id="fname">
+          <br>
+          <label for="lname">Last Name: </label>
+          <br>
+          <input type="text" name="lname" id="lname">
+          <br>
+          <label for="email">Email Address: </label>
+          <br>
+          <input type="email" name="email" id="email">
+          <br>
+          <label for="subject">Subject: </label>
+          <br>
+          <input type="text" name="subject" id="subject">
+          <br>
+          <label for="message">Message: </label>
+          <br>
+          <textarea rows="4" cols="50" type="text" name="body" id="body"></textarea>
+          <br>
+          <input type="submit" id="emailSubmit">
+        </fieldset>
+      </form>
+    </div>
+
+  </body>
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="style.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+</html>

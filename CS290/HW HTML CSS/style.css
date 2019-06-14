@@ -1,0 +1,31 @@
+tbody th {
+  font-style: italic;
+  font-weight:normal;
+}
+
+table, th, td{
+  border: 1px solid black;
+}
+
+tbody tr:nth-child(odd){
+    background-color: #ff0000;
+}
+
+tbody tr:nth-child(even){
+    background-color: #00ff00;
+}
+.outer-content {
+  left: 0px;
+  width: 75%;
+  background-color:pink;
+  margin-top: 20px;
+  padding:10px;
+
+}
+
+.inner-content {
+  margin: 0 auto;
+  width: 75%;
+  background-color:blue;
+  padding: 10px
+}

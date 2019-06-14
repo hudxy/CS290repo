@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <br>
+    <br>
+  <h1 style="text-align: center;">Welcome to Hudson Dean's Webpage</h1>
+    <meta charset="UTF-8">
+
+
+    <title>Hudson Dean Webpage</title>
+  </head>
+  <body>
+  <div id="navbar">
+    <ul>
+      <li class="navbarItem"><a href="index.html" >Home</a></li>
+      <li class="navbarItem"><a href="project.html" >Projects</a></li>
+      <li class="navbarItem"><a href="resume.html" class="active">Resume</a></li>
+      <li class="navbarItem"><a href="contact.html" >Contact</a></li>
+  </ul>
+  </div>
+  <div id="wrapper">
+    <div id="resume"></div>
+    <a href="Dean_Hudson_CS_Resume.pdf"  download ><button id="resButton">Download my resume here!</button></a>
+    <br>
+    <a href="https://www.linkedin.com/in/hudson-dean-396594152/"><p>Click Here to Visit My Linkedin!</p></a>
+    <a href="https://github.com/hudxy"><p>Click Here to Visit My Github!</p></a>
+    <a href="https://repl.it/@hudxy"><p>Click Here to Visit My Repl.it!</p></a>
+  </div>
+  </body>
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="style.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- PDFObject viewer from https://github.com/pipwerks/PDFObject and referenced at: https://pdfobject.com/ -->
+<script src="PDFObject-master/pdfobject.js"></script>
+<script>PDFObject.embed("Dean_Hudson_CS_Resume.pdf", "#resume");</script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</html>

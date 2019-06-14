@@ -1,0 +1,35 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Update</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/af.js"></script>
+  <script src="script.js"></script>
+</head>
+<body>
+  <form id = "updateWorkout"  action="/update" method="post" >
+    <h1>Update Workout</h1>
+    <input type="hidden" name = "uid" id = "uid" value="{{workout.id}}">
+    Name: <br>
+    <input type = "text" name = "uname" id = "uname" value="{{workout.name}}"> </br></br>
+    Reps: </br>
+    <input type = "number" name = "ureps" id = "ureps" value="{{workout.reps}}"> </br></br>
+    Weight: </br>
+    <input type = "number" step="0.01" min ="0" name = "uweight" id = "uweight" value="{{workout.weight}}"> </br></br>
+    Date: <br>
+    <input type = "text" name = "udate" id = "udate" value="{{workout.date}}"></br></br>
+    Units: <br>
+    <select name="ulbs" id="ulbs">
+      {{#if workout.lbs}}
+      <option value="1">lbs</option>
+      <option value="0">kg</option>
+      {{else}}
+      <option value="0">kg</option>
+      <option value="1">lbs</option>
+      {{/if}}
+    </select> </br></br>
+    <input type = "Submit" id = "submit_workout">
+  </form></br>
+
+</body>
+</html>
